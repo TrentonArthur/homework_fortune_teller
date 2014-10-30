@@ -8,6 +8,6 @@ class FortunesController < ApplicationController
   end
 
   def unlucky_numbers
-    @numbers = [rand(100...1000), rand(100...1000), rand(100...1000), rand(100...1000), rand(100...1000)]
+    @numbers = [rand(1..100), rand(1..100), rand(1..100), rand(1..100), rand(1..100)]
   end
 end

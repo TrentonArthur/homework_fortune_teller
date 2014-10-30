@@ -1,8 +1,6 @@
 class Zodiac
-  attr_accessor :creature, :sign, :fortune
-
   def Zodiac.all
-    info = [
+    return [
       {
         :creature => "ram",
         :sign => "aries",
@@ -64,14 +62,6 @@ class Zodiac
         :fortune => "Business and financial success makes you happy and satisfied, Pisces. You also look forward to moving on. The downside of this flush period is that people who aren't particularly trustworthy might decide to latch onto your coattails for their own purposes. Some might even ask for loans. Be careful about the ones you assist. They might not be honest with you. Don't fall for any sob stories."
        }
     ]
-
-    return info.map do |hash|
-      z = Zodiac.new
-      z.creature = hash[:creature]
-      z.sign = hash[:sign]
-      z.fortune = hash[:fortune]
-      z
-    end
   end
 
   def Zodiac.where(lookup_hash)
@@ -79,7 +69,7 @@ class Zodiac
 
     lookup_hash.each do |key, value|
       all_matching_rows = all_matching_rows.select do |row|
-        row.send(key) == value
+        row[key] == value
       end
     end
 
